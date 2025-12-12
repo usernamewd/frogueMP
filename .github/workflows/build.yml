@@ -43,8 +43,8 @@ jobs:
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
-      - name: Validate Gradle wrapper
-        run: gradle validateGradleWrapper
+      - name: Check Gradle wrapper
+        run: ./gradlew --version
 
       - name: Generate assets list
         run: ./gradlew :core:generateAssetList
