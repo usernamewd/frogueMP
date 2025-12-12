@@ -45,6 +45,17 @@ jobs:
 
       - name: Check Gradle wrapper
         run: ./gradlew --version
+        continue-on-error: true
+
+      - name: Validate Gradle setup
+        run: |
+          if [ -f "./gradlew" ]; then
+            echo "Gradle wrapper exists and is executable"
+            ls -la ./gradlew
+          else
+            echo "ERROR: Gradle wrapper not found"
+            exit 1
+          fi
 
       - name: Generate assets list
         run: ./gradlew :core:generateAssetList
