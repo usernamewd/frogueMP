@@ -1,0 +1,49 @@
+version: 2
+updates:
+  # Gradle dependencies
+  - package-ecosystem: "gradle"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "gradle"
+      include: "scope"
+    reviewers:
+      - "necrashter"
+    assignees:
+      - "necrashter"
+
+  # GitHub Actions dependencies
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "github-actions"
+      include: "scope"
+    reviewers:
+      - "necrashter"
+    assignees:
+      - "necrashter"
+
+  # Node.js dependencies (for GWT web build)
+  - package-ecosystem: "npm"
+    directory: "/html"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "npm"
+      include: "scope"
+    reviewers:
+      - "necrashter"
+    assignees:
+      - "necrashter"
