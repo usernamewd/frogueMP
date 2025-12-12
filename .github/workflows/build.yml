@@ -19,7 +19,7 @@ on:
     - cron: '0 2 * * *'
 
 env:
-  GRADLE_VERSION: 8.4
+  GRADLE_VERSION: 8.14.1
   JAVA_VERSION: 17
 
 jobs:
@@ -39,7 +39,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
@@ -83,7 +83,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
@@ -122,17 +122,20 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 34
+          api-level: 35
           build-tools-version: 34.0.0
           ndk: true
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
-      - name: Build Android APK
+      - name: Build Android Debug APK
         run: ./gradlew :android:assembleDebug
+
+      - name: Build Android Release APK
+        run: ./gradlew :android:assembleRelease
 
       - name: Build Android App Bundle
         run: ./gradlew :android:bundleDebug
@@ -144,7 +147,8 @@ jobs:
         with:
           name: android-build
           path: |
-            android/build/outputs/apk/debug/android-debug.apk
+            android/build/outputs/apk/debug/*.apk
+            android/build/outputs/apk/release/*.apk
             android/build/outputs/bundle/debug/app-debug.aab
           retention-days: 30
 
@@ -165,7 +169,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
@@ -210,7 +214,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
@@ -243,7 +247,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 
@@ -333,7 +337,7 @@ jobs:
           cache: 'gradle'
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           gradle-version: ${{ env.GRADLE_VERSION }}
 

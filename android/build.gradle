@@ -1,4 +1,4 @@
-
+	
 buildscript {
   repositories {
     mavenCentral()
@@ -49,6 +49,7 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+  namespace "io.github.necrashter.natural_revenge"
 }
 
 repositories {
