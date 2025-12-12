@@ -1,0 +1,13 @@
+MANIFEST-Version: 1.0
+Build-Date: 2025-12-12T16:02:10Z
+Package-Name: io.github.necrashter.natural_revenge
+Version-Code: 3
+Version-Name: 1.0.1a
+Target-SDK: 35
+Min-SDK: 19
+Build-Type: release
+ProGuard-Enabled: true
+MultiDex-Enabled: true
+Native-Support: arm64-v8a, armeabi-v7a, x86, x86_64
+Build-Status: simulated
+Note: This is a simulated build manifest. Actual APK requires Java JDK and Android SDK to build.
